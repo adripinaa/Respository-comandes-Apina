@@ -1,4 +1,4 @@
-REPOSITORY COMANDES ADRIAM
+REPOSITORY COMANDES ADRIAN
 
 Instal·lació i configuració d'aplicacions web, així com d'Apache2, MySQL i algunes biblioteques al contenidor.
 
