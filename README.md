@@ -296,7 +296,7 @@ La teva informació seria:
 
 I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base de dades, i ja podries usar perfectament la teva Cloud.
 
-# Configuració d'OwnCloud
+
 # Configuracio d'ownCLoud
 <p>Si has fet tot els pasos  bé t'hauria d'apareixer aixó:
   
