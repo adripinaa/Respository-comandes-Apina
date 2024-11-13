@@ -321,7 +321,7 @@ I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base d
 <p>1 pas: Per crear arxius, carpetes o pujar fitxers, Cliquem +.
 
 <p> 2 pas: Creem una carpeta.
-<p> 3 pas: Ara creem un arxiu.
+<p> 3 pas: y per últim creem un arxiu, aquest arxiu serveix com un document.
   
-<p>4 pas: I ya estaría finalitzat. Aquest arxiu serveix com un document.
+Ya estaría finalitzada la configuració de l'OwnCloud.
 
