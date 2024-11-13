@@ -298,49 +298,34 @@ I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base d
 
 
 # Configuracio d'ownCLoud
-<p>Si has fet tot els pasos  bé t'hauria d'apareixer aixó:
-  
-![Captura desde 2024-11-12 08-36-23](https://github.com/user-attachments/assets/c679aa8f-b595-490b-bd02-a94b38cbba67)
+<p>Si has fet tot els pasos  bé t'hauria d'apareixer un menú amb arxius.
 
 ## Creació d'usuaris
-<p>Per crear usuaris anem on surt el nostre usuari.
+<p>Per crear usuaris anem on surt el nostre usuari i fem clic a "users.
+  
+<p>Per crear l'usuari hem de posar el nostre nom d'usuari i un correu, aquest pas es fa on posa el nostre usuari.
 
-![Captura desde 2024-11-12 08-38-12](https://github.com/user-attachments/assets/4942a1f6-0be6-4644-be9b-dc00ff0595c7)
-<p>Fem clic a "users".
+Seguidament creem 3 o 4 usuaris més.
   
-![Captura desde 2024-11-12 08-39-36](https://github.com/user-attachments/assets/1d38c658-3cd8-4e1c-ba9a-7e43ce801ea5)
-<p>Aqui es on es crea l'usuari.
-<p>Per crear l'usuari hem de posar el nostre nom d'usuari i un correu.
-<p>Aquest pas es fa on posa el nostre usuari.
-  
-![Captura desde 2024-11-12 08-43-09](https://github.com/user-attachments/assets/a0487e98-c3f0-4e42-9fd3-b44ef4b53575)
-<p>Ara creem 3 o 4 usuaris més.
-  
-![Captura desde 2024-11-12 08-52-23](https://github.com/user-attachments/assets/6b3332ea-27cc-47d8-9444-bf80ffd0b6bd)
 ## Assignem rols i permisos
-<p> Ara assignarem rols al nostres usuaris creats.
-<p> Per crear un rol hem de fer clic a "Add group", i ja tens dos rols creats que són: "Everyone" i "Admin".
+Ara assignarem rols al nostres usuaris creats, per crear un rol hem de fer clic a "Add group", i ja tens dos rols creats que són: "Everyone" i "Admin".
   
-![Captura desde 2024-11-12 08-57-00](https://github.com/user-attachments/assets/e74ad03a-7c27-4017-8729-3c131b37c6e5)
-<p>Creem dos rols nous.
-<p>Per assignar els rols en un usuari li donem a "Group" en el mateix usuari i l'assignem el rol que acabem de crear.
+Creem dos rols nous, per assignar els rols en un usuari li donem a "Group" en el mateix usuari i l'assignem el rol que acabem de crear.
   
-![Captura desde 2024-11-12 09-04-21](https://github.com/user-attachments/assets/a5ade8fe-e0fc-4842-a09b-3f475ed73654)
-<p>Assignem permisos al nostres usuaris.
-<p>Fem clic a "users" i a "Archivos"
+<p>Assignem permisos al nostres usuaris, fem clic a "users" i a "Archivos"
+
 <p>Seleccionem la carpeta a que volem donar permisos als nostres usuaris.
 <p> Cliquem "sharing", posem el nom dels rols, o el nom de l'usuari.
   
-![Captura desde 2024-11-12 09-23-02](https://github.com/user-attachments/assets/a0cecf31-4afb-426e-a607-99d41497a1ae)
-![Captura desde 2024-11-12 09-25-46](https://github.com/user-attachments/assets/eae7ab17-c2b4-4360-9972-63722246f288)
+
 <p>Amb aixo hauria d'haver finalitzat de configurar rols i permisos.
-# Administració d'arxius.
-<p>Per crear arxius, carpetes o pujar fitxers, Cliquem +.
+
   
-![Captura desde 2024-11-12 09-40-19](https://github.com/user-attachments/assets/bc3ea617-71bd-49c2-9858-7d747505c964)
+  # Administració d'arxius.
+<p>Per crear arxius, carpetes o pujar fitxers, Cliquem +.
+
 <p> Creem una carpeta.
 <p> Ara creem un arxiu.
   
-![Captura desde 2024-11-12 09-42-49](https://github.com/user-attachments/assets/6c899237-e4d3-4e4a-b84e-e9728ff47396)
-<p> Aquest arxiu serveix com un document.
+<p> I ya estaría finalitzat. Aquest arxiu serveix com un document.
 
