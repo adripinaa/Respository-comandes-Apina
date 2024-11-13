@@ -151,7 +151,6 @@ Des d'un terminal on siguem root posem aquesta comanda per entrar a la terminal 
 sudo mysql
 
 ```
-![Captura desde 2024-11-07 14-06-07(1)](https://github.com/user-attachments/assets/a0477b29-fd8f-4859-8ee9-8aabf9b613f3)
 
 ### Creem una base de dades.
 
@@ -162,7 +161,6 @@ Dins el terminal de mysql creem una base de dades, al crear una nova s'ha creat 
 CREATE DATABASE bbdd;
 
 ```
-![Captura desde 2024-11-07 14-06-20](https://github.com/user-attachments/assets/ab8def8a-e326-4a43-b230-16809fb4167f)
 
 ### Creació del nostre usuari
 
@@ -173,8 +171,6 @@ Ara hem de crear un nou usuari, amb un usuari i una contrasenya, a més que util
 CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 
 ```
-![Captura desde 2024-11-07 14-06-57](https://github.com/user-attachments/assets/d1611068-eeaf-4d1d-b109-e6531834f477)
-
 ### Finalment li donem privilegis al nostre usuari
 
 ``` bash
@@ -182,7 +178,6 @@ CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pass
 GRANT ALL ON bbdd.* to 'usuario'@'localhost';
 
 ```
-![Captura desde 2024-11-07 14-07-08](https://github.com/user-attachments/assets/e0b44991-d29e-46e2-a0d7-18a94b98d391)
 
 ### Sortim de la base de dades
 
@@ -297,35 +292,36 @@ La teva informació seria:
 I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base de dades, i ja podries usar perfectament la teva Cloud.
 
 
-# Configuracio d'ownCLoud
-<p>Si has fet tot els pasos  bé t'hauria d'apareixer un menú amb arxius.
+# 1. Configuracio d'ownCLoud
+<p>1 pas: Si has fet tot els pasos  bé t'hauria d'apareixer un menú amb arxius.
 
-## Creació d'usuaris
-<p>Per crear usuaris anem on surt el nostre usuari i fem clic a "users.
+## 2. Creació d'usuaris
+<p>1 pas: Per crear usuaris anem on surt el nostre usuari i fem clic a "users.
   
-<p>Per crear l'usuari hem de posar el nostre nom d'usuari i un correu, aquest pas es fa on posa el nostre usuari.
+<p>2 pas: Per crear l'usuari hem de posar el nostre nom d'usuari i un correu, aquest pas es fa on posa el nostre usuari.
 
-Seguidament creem 3 o 4 usuaris més.
+3 pas: Seguidament creem 3 o 4 usuaris més.
   
-## Assignem rols i permisos
-Ara assignarem rols al nostres usuaris creats, per crear un rol hem de fer clic a "Add group", i ja tens dos rols creats que són: "Everyone" i "Admin".
-  
-Creem dos rols nous, per assignar els rols en un usuari li donem a "Group" en el mateix usuari i l'assignem el rol que acabem de crear.
-  
-<p>Assignem permisos al nostres usuaris, fem clic a "users" i a "Archivos"
+## 3. Assignem rols i permisos
 
-<p>Seleccionem la carpeta a que volem donar permisos als nostres usuaris.
-<p> Cliquem "sharing", posem el nom dels rols, o el nom de l'usuari.
+1 pas: Ara assignarem rols al nostres usuaris creats, per crear un rol hem de fer clic a "Add group", i ja tens dos rols creats que són: "Everyone" i "Admin".
+  
+2 pas: Creem dos rols nous, per assignar els rols en un usuari li donem a "Group" en el mateix usuari i l'assignem el rol que acabem de crear.
+  
+<p>3 pas: Assignem permisos al nostres usuaris, fem clic a "users" i a "Archivos"
+
+<p>4 pas: Seleccionem la carpeta a que volem donar permisos als nostres usuaris.
+<p>5 pas:  Cliquem "sharing", posem el nom dels rols, o el nom de l'usuari.
   
 
 <p>Amb aixo hauria d'haver finalitzat de configurar rols i permisos.
 
   
-  # Administració d'arxius.
-<p>Per crear arxius, carpetes o pujar fitxers, Cliquem +.
+  # 4. Administració d'arxius.
+<p>1 pas: Per crear arxius, carpetes o pujar fitxers, Cliquem +.
 
-<p> Creem una carpeta.
-<p> Ara creem un arxiu.
+<p> 2 pas: Creem una carpeta.
+<p> 3 pas: Ara creem un arxiu.
   
-<p> I ya estaría finalitzat. Aquest arxiu serveix com un document.
+<p>4 pas: I ya estaría finalitzat. Aquest arxiu serveix com un document.
 
