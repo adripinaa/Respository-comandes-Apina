@@ -292,17 +292,17 @@ La teva informació seria:
 I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base de dades, i ja podries usar perfectament la teva Cloud.
 
 
-# 1. Configuracio d'ownCLoud
+# Configuracio d'ownCLoud
 <p>1 pas: Si has fet tot els pasos  bé t'hauria d'apareixer un menú amb arxius.
 
-## 2. Creació d'usuaris
+## 1. Creació d'usuaris
 <p>1 pas: Per crear usuaris anem on surt el nostre usuari i fem clic a "users.
   
 <p>2 pas: Per crear l'usuari hem de posar el nostre nom d'usuari i un correu, aquest pas es fa on posa el nostre usuari.
 
 3 pas: Seguidament creem 3 o 4 usuaris més.
   
-## 3. Assignem rols i permisos
+## 2. Assignem rols i permisos
 
 1 pas: Ara assignarem rols al nostres usuaris creats, per crear un rol hem de fer clic a "Add group", i ja tens dos rols creats que són: "Everyone" i "Admin".
   
@@ -317,7 +317,7 @@ I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base d
 <p>Amb aixo hauria d'haver finalitzat de configurar rols i permisos.
 
   
-  # 4. Administració d'arxius.
+  # 3. Administració d'arxius.
 <p>1 pas: Per crear arxius, carpetes o pujar fitxers, Cliquem +.
 
 <p> 2 pas: Creem una carpeta.
