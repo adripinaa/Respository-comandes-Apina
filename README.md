@@ -1,5 +1,3 @@
-REPOSITORY COMANDES ADRIAN
-
 Instal·lació i configuració d'aplicacions web, així com d'Apache2, MySQL i algunes biblioteques al contenidor.
 
 Instal·lació d'Apache2, MySQL i PHP
@@ -20,6 +18,8 @@ Instal·lació d'Apache2, MySQL i PHP
 
 
 6. Reiniciar el servidor Apache2: Per aplicar els canvis, reiniciem Apache amb la comanda: sudo systemctl restart apache2.
+
+
 
 
 
@@ -65,6 +65,8 @@ Creació de la base de dades i usuari:
 
 
 
+
+
 Descarregar els fitxers de l'aplicació web
 
 1. Accedir al directori HTML: Descomprimim els fitxers de l'aplicació a /var/www/html. Hem de substituir app-web.zip pel nom del fitxer que hàgiu descarregat i app-web pel nom del directori creat.
@@ -83,6 +85,8 @@ Descarregar els fitxers de l'aplicació web
 
 
 6. Eliminar la carpeta descomprimida: Eliminem el directori temporal creat amb: sudo rm -rf app-web/. També podem esborrar el fitxer d'index per defecte d'Apache amb: sudo rm -rf /var/www/html/index.html.
+
+
 
 
 
