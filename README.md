@@ -1,123 +1,351 @@
-Instal·lació i configuració d'aplicacions web, així com d'Apache2, MySQL i algunes biblioteques al contenidor.
+# Instal·lació d'OwnCloud
 
-Instal·lació d'Apache2, MySQL i PHP
+## Instal·lació de la versió 7.4 de PHP a Ubnutu 24.04
 
-1. Actualització del sistema: Executem la comanda per actualitzar: sudo apt update i, a continuació, sudo apt upgrade.
+Per a instal·lar OwnCloud necessitem la versió 7.4 de PHP.
 
+Les comandes següents són les necessàries per a actualitzar el PHP.
 
-2. Instal·lació del servidor web Apache2: Amb la següent comanda instal·lem Apache2: sudo apt install -y apache2.
+Amb aquesta comanda instal·lem els requisits de PPA (arxius de paquets personals).
 
+```bash
 
-3. Instal·lació del sistema de gestió de bases de dades MySQL: Fem la instal·lació amb: sudo apt install -y mysql-server.
+sudo apt install software-properties-common -y
 
+```
 
-4. Instal·lació de llibreries per a PHP: PHP és el llenguatge principal utilitzat en aquestes aplicacions.
+Instal·lem les eines necessàries per a poder treballar amb PPA.
 
+```bash
 
-5. Instal·lació de llibreries PHP addicionals: Executem: sudo apt install -y php libapache2-mod-php i també sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl.
+LC_ALL=C.UTF-8 sudo add-apt-repository ppa:ondrej/php -y
 
+```
 
-6. Reiniciar el servidor Apache2: Per aplicar els canvis, reiniciem Apache amb la comanda: sudo systemctl restart apache2.
+Actualitzem
 
+``` bash
 
+sudo apt update
 
+```
 
+Amb aquestes 3 comandes instal·lem les llibreries de PHP de la versió 7.4.
 
-Configuració de MySQL
+``` bash
 
-1. Accés a la consola de MySQL: Obrim el terminal com a root i executem: sudo mysql.
+sudo apt install php7.4 -y
 
+```
 
+``` bash
 
-Creació de la base de dades i usuari:
+sudo apt install -y php libapache2-mod-php7.4
 
-1. Creació de la base de dades: Un cop dins de MySQL, creem la base de dades amb la comanda: CREATE DATABASE bbdd;.
+```
 
+``` bash
 
-2. Creació d'un usuari MySQL: Configurem l'usuari especificant l'adreça IP local (localhost) des de la qual accedirà: CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';.
+sudo apt install -y php7.4-fpm php7.4-common php7.4-mbstring php7.4-xmlrpc php7.4-soap php7.4-gd php7.4-xml php7.4-intl php7.4-mysql php7.4-cli php7.4-ldap php7.4-zip php7.4-curl
 
+```
 
-3. Assignació de permisos: Donem permisos totals a l'usuari sobre la base de dades amb: GRANT ALL ON bbdd.* TO 'usuario'@'localhost';.
+Amb aquesta comanda seleccionem la versió de PHP que necessitem, en aquest cas necessitem la 7.4.
 
+``` bash
 
-4. Sortir de la consola de MySQL: Amb la comanda exit.
+sudo update-alternatives --config phpmmm
 
+```
 
-5. Verificació de la connexió: Comprovem la connexió amb la base de dades executant: mysql -u usuario -p.
+Ara activem els mòduls que necessitem d'Apache2 perquè funcioni.
 
+``` bash
 
-6. Modificació de la configuració d'accés: Obrim el fitxer de configuració amb l'editor Vim: vim /etc/mysql/mysql.conf.d/mysqld.cnf.
+sudo a2enmod proxy_fcgi setenvif
 
+```
 
-7. Trobar la línia de bind-address: Cerquem la línia bind-address = 127.0.0.1.
+``` bash
 
+sudo a2enconf php7.4-fpm
 
-8. Modificar el bind-address: Canviem la IP per 0.0.0.0 de manera que la línia quedi així: bind-address = 0.0.0.0.
+```
 
+Y per finalitzar amb l'instal·lació de la versió 7.4 de PHP, reiniciem l'Apache2.
 
-9. Reiniciar el servidor MySQL: Aplicar els canvis amb la comanda: systemctl restart mysql.
+``` bash
 
+sudo service apache2 restart
 
-10. Creació d'un usuari per a accés remot: Definim un usuari amb permís per accedir des d'una IP específica (192.168.22.100) amb: CREATE USER 'usuario'@'192.168.22.100' IDENTIFIED WITH mysql_native_password BY 'password';.
+```
 
+## Comandes per l'instal·lació i configuració de OwnCloud
 
-11. Permisos per a l'usuari remot: Donem permisos a l'usuari remot per accedir a la base de dades: GRANT ALL ON bbdd.* TO 'usuario'@'192.168.22.100'; i després, exit.
+Per a instal·lar i configurar OwnCloud, farem ús d'apache2, al instal·lar Apache2 es crearà una carpeta dins de /var/www/html, on treballarem.
 
+## Comandes per l'instal·lació d'Apache2 i mysql, i llibreries de PHP
 
+Actualitzem la nostra màquina.
 
+``` bash
 
+sudo apt update
 
-Descarregar els fitxers de l'aplicació web
+```
 
-1. Accedir al directori HTML: Descomprimim els fitxers de l'aplicació a /var/www/html. Hem de substituir app-web.zip pel nom del fitxer que hàgiu descarregat i app-web pel nom del directori creat.
+Aquesta no és obligatòria posar-la, però és millor, a més que triga molt en processar aquesta comanda.
 
+``` bash
 
-2. Copiar el fitxer ZIP: Executem sudo cp ~/Baixades/app-web.zip /var/www/html.
+sudo apt upgrade
 
+```
 
-3. Navegar al directori web: Amb la comanda: cd /var/www/html.
+Instal·lem el servidor web d'Apache2
 
+``` bash
 
-4. Descomprimir l'arxiu ZIP: Fem servir: sudo unzip app-web.zip.
+sudo apt install -y apache2
 
+```
 
-5. Copiar els fitxers al directori web principal: Canviem app-web pel nom de la carpeta descomprimida: sudo cp -R app-web/. /var/www/html.
+Instal·lem la base de dades de mysql
 
+``` bash
 
-6. Eliminar la carpeta descomprimida: Eliminem el directori temporal creat amb: sudo rm -rf app-web/. També podem esborrar el fitxer d'index per defecte d'Apache amb: sudo rm -rf /var/www/html/index.html.
+sudo apt install -y apache2
 
+```
 
+Instal·lem algunes llibreries PHP, que aquest és el llenguatge de totes les aplicacions.
 
+``` bash
 
+sudo apt install -y php libapache2-mod-php
 
-Aplicació de permisos
+```
 
-Un cop descomprimits els fitxers de l'aplicació web a /var/www/html, assignem els permisos:
+``` bash
 
-1. Establir permisos: Accedim al directori amb cd /var/www/html.
+sudo apt install -y php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 
+```
 
-2. Modificar els permisos: Executem sudo chmod -R 775 ..
+I per finalitzar reiniciem el servidor d'Apache2
 
+``` bash
 
-3. Canviar propietari i grup: Fem que usuario sigui el propietari i www-data el grup amb: sudo chown -R usuario:www-data ..
+sudo systemctl restart apache2
 
+```
 
+## Configurem la base de dades de mysql
 
+### Entrem a la consola de dades de mysql per posar totes aquestes comandes.
 
-Verificació de la instal·lació al navegador
+Des d'un terminal on siguem root posem aquesta comanda per entrar a la terminal de mysql
 
-Per comprovar que tot funciona, obrim el navegador i introduïm l'adreça: http://localhost. Si s'ha configurat correctament, apareixerà la pantalla d'instal·lació de l'aplicació web que hem descarregat.
+``` bash
 
-Informació d'accés a la base de dades:
+sudo mysql
 
-Usuari: usuario
+```
+![Captura desde 2024-11-07 14-06-07(1)](https://github.com/user-attachments/assets/a0477b29-fd8f-4859-8ee9-8aabf9b613f3)
 
-Contrasenya: password
+### Creem una base de dades.
 
-Base de dades: bbdd
+Dins el terminal de mysql creem una base de dades, ja que a l'estar creant aquesta nova base de dades, li posem el nom de bbdd
 
-Domini: localhost
+``` bash
 
+CREATE DATABASE bbdd;
 
-Si has seguit aquest manual correctament, podràs completar la instal·lació de l'aplicació web.
+```
+![Captura desde 2024-11-07 14-06-20](https://github.com/user-attachments/assets/ab8def8a-e326-4a43-b230-16809fb4167f)
+
+### Creació del nostre usuari
+
+Ara hem de crear un nou usuari, amb un usuari i una contrasenya, a més que utilitzarem la IP de localhost
+
+``` bash
+
+CREATE USER 'usuario'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+```
+![Captura desde 2024-11-07 14-06-57](https://github.com/user-attachments/assets/d1611068-eeaf-4d1d-b109-e6531834f477)
+
+### Per finalitzar li donem privilegis al nostre usuari
+
+``` bash
+
+GRANT ALL ON bbdd.* to 'usuario'@'localhost';
+
+```
+![Captura desde 2024-11-07 14-07-08](https://github.com/user-attachments/assets/e0b44991-d29e-46e2-a0d7-18a94b98d391)
+
+### Sortim de la base de dades
+
+``` bash
+
+exit
+
+```
+
+### Ens assegurem que hem fet tots els passos bé.
+
+Amb el terminal normal sense privilegis provem a connectar-nos a mysql i introduïm la nostra contrasenya de mysql.
+
+``` bash
+
+mysql -u usuario -p
+
+```
+
+## Descarreguem l'aplicació web
+
+Descarreguem el .zip de la nostra cloud, en aquest cas la de OwnCloud:
+
+https://download.owncloud.com/server/stable/owncloud-complete-20240724.zip
+
+Ara copiem el .zip i ho peguem al directori /var/www/html per fer tot el que ens falta per fer (Baixades pot variar depenent de l'idioma que tinguis).
+
+``` bash
+
+sudo cp ~/Baixades/owncloud-complete-20240724.zip /var/www/html
+
+```
+
+Ara anem al directori /var/www/html
+
+``` bash
+
+cd /var/www/html
+
+```
+
+En aquest directori descomprimim el .zip que hem baixat.
+
+``` bash
+
+sudo unzip owncloud-complete-20240724.zip
+
+```
+
+Copiem els fitxers a la carpeta /var/www/html, i canviem els signes d'interrogant (??) pel nom del directori on s'ha descomprimit l'arxiu d'abans.
+
+``` bash
+
+sudo cp -R ??/. /var/www/html
+
+```
+
+Ara la carpeta creada de quan hem descomprimit l'arxiu, l'eliminem (tornem a cambiar ??, per el nom de la carpeta).
+
+``` bash
+
+sudo rm -rf ??/
+
+```
+
+Y per ultim eliminem el fitxer index.html de l'Apache2
+
+``` bash
+
+sudo rm -rf /var/www/html/index.html
+
+```
+
+## Permisos a les nostres aplicacions web.
+
+Al tenir descomprimit el fitxer a /var/www/html donem permisos a aquest mateix directori amb les següents comandes.
+
+``` bash
+
+cd /var/www/html
+
+```
+
+``` bash
+
+sudo chmod -R 775 .
+
+```
+
+``` bash
+
+sudo chown -R usuario:www-data .
+
+```
+
+## Veure si podem accedir al navegador.
+
+Entreu a http://localhost en el teu navegador web, i configura la teva Cloud.
+
+Si heu fet bé tots els passos, us ficarà al OwnCloud, i us demanarà crear-vos un usuari d'admin i la base de dades que has configurat.
+
+La teva informació seria:
+
+- Usuari: usuario
+
+- Contrasenya: password
+
+- Base de dades: bbdd
+
+- Domini: localhost
+
+I amb això ja hauries d'haver acabat de configurar i instal·lar la teva base de dades, i ja podries usar perfectament la teva Cloud.
+
+# Configuració d'OwnCloud
+# Configuracio d'ownCLoud
+<p>Si has fet tot els pasos d'abans bé ahuries d'estar aqui
+  
+![Captura desde 2024-11-12 08-36-23](https://github.com/user-attachments/assets/c679aa8f-b595-490b-bd02-a94b38cbba67)
+
+## Creació d'usuaris
+<p>Per crear usuaris anem a la part dreta on surt el nostre usuari i cliquem.
+
+![Captura desde 2024-11-12 08-38-12](https://github.com/user-attachments/assets/4942a1f6-0be6-4644-be9b-dc00ff0595c7)
+<p>Aqui cliquem on posa "users".
+  
+![Captura desde 2024-11-12 08-39-36](https://github.com/user-attachments/assets/1d38c658-3cd8-4e1c-ba9a-7e43ce801ea5)
+<p>I aqui es on creem els usuaris.
+<p>Per crear el usuari tenim que posar el nom de l'usuari, i un e-mail, que pot ser inventat.
+<p>Aixo es fa en l'espai de dalt del teu usuari que posa el que he dit abans.
+  
+![Captura desde 2024-11-12 08-43-09](https://github.com/user-attachments/assets/a0487e98-c3f0-4e42-9fd3-b44ef4b53575)
+<p>Ara creem 3 o 4 usuaris.
+  
+![Captura desde 2024-11-12 08-52-23](https://github.com/user-attachments/assets/6b3332ea-27cc-47d8-9444-bf80ffd0b6bd)
+## Assignem rols i permisos
+<p> Ara assignarem rols al nostres usuaris creats.
+<p> Per crear un rol li tenim que clicar on posa "Add group", i tindras ja dos rols creats predeterminats, "Everyone" i "Admin".
+  
+![Captura desde 2024-11-12 08-57-00](https://github.com/user-attachments/assets/e74ad03a-7c27-4017-8729-3c131b37c6e5)
+<p>I creem dos rols nous, els que vulguis.
+<p>Per assignar els rols en un usuari li donem a "Group" en el mateix usuari i l'assignem el rol que acabem de crear.
+<p>I ahuria de quedar aixi amb el nom dels rols creats per tu.
+  
+![Captura desde 2024-11-12 09-04-21](https://github.com/user-attachments/assets/a5ade8fe-e0fc-4842-a09b-3f475ed73654)
+<p>Ara assignem permisos al nostres usuaris.
+<p>Li donem a "users" que posa d'alt del tot, i aqui donem a "Archivos"
+<p>Aqui seleccionem la carpeta a que volem donar permisos als nostres usuaris.
+<p> I li donem a "sharing", posem el nom dels rols que volem donar permisos a aquesta carpeta, o el nom de l'usuari al que volem donar permisos en aquesta carpeta.
+<p>I amb els teus rols i usuaris ahuria de quedar aixi
+  
+![Captura desde 2024-11-12 09-23-02](https://github.com/user-attachments/assets/a0cecf31-4afb-426e-a607-99d41497a1ae)
+<p>I si li donem al engranatge al costat del usuari o rol, podem posar que pot fer aquest grup o persona. 
+  
+![Captura desde 2024-11-12 09-25-46](https://github.com/user-attachments/assets/eae7ab17-c2b4-4360-9972-63722246f288)
+<p>I amb aixo ja ahuriem d'haver acabat de configurar rols i permisos als rols.
+# Administració d'arxius.
+<p>Per crear arxius, carpetes o pujar fitxers, em de donarle al "+" que posa dalt de les carpetes predeterminades.
+  
+![Captura desde 2024-11-12 09-40-19](https://github.com/user-attachments/assets/bc3ea617-71bd-49c2-9858-7d747505c964)
+<p>I creem una carpeta amb qualsevol nom.
+<p> Ara creem un arxiu dins de la carpeta 
+  
+![Captura desde 2024-11-12 09-42-49](https://github.com/user-attachments/assets/6c899237-e4d3-4e4a-b84e-e9728ff47396)
+<p>I aquest arxiu serveix com un document, pots escriure el que vulguis dins.
+<p>També pots pujar un arxiu desde la teva propia maquina.
+<p>I dins de l'arxiu com en les carpetes, també pots donar permisos a usuaris d'editar els arxius o pujar mes arxius.
