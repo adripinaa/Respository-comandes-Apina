@@ -104,6 +104,7 @@ Un cop descomprimits els fitxers de l'aplicació web a /var/www/html, assignem e
 
 
 
+
 Verificació de la instal·lació al navegador
 
 Per comprovar que tot funciona, obrim el navegador i introduïm l'adreça: http://localhost. Si s'ha configurat correctament, apareixerà la pantalla d'instal·lació de l'aplicació web que hem descarregat.
